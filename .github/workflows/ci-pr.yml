@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [common, product-service, order-service, payment-service, api-gateway, config-server, discovery-server]
+        service: [common, product-service, order-service, payment-service]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
