@@ -35,11 +35,11 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v3
       - name: Create PR from develop to master
-        uses: peter-evans/create-pull-request@v5
+        uses: repo-sync/pull-request@v2
         with:
-          base: master
-          branch: develop
-          title: 'Sync develop -> master'
-          body: 'Automated PR from develop to master after successful CI build'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: "develop"
+          destination_branch: "master"
+          pr_title: "Sync develop -> master"
+          pr_body: "Automated PR from develop to master after successful CI build"
