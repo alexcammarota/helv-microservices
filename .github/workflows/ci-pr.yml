@@ -31,10 +31,12 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Create PR from develop to master
         uses: repo-sync/pull-request@v2
         with:
